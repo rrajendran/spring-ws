@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://spring-ws.com/person/schemas" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://spring-ws.com/person/schemas">
+    <element name="PersonRequest">
+    	<complexType>
+    		<sequence>
+    			<element name="name" type="string"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+
+    <element name="PersonResponse">
+    	<complexType>
+    		<sequence>
+    			<element name="emailid" type="string"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+</schema>
