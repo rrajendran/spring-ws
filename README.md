@@ -1,4 +1,4 @@
-spring-webservice
+spring-ws
 =================
 
 Getting started with spring webservice
