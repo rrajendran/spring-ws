@@ -6,7 +6,7 @@
   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	<context:annotation-config />
 	<context:component-scan base-package="com.capella" />
-	<context:property-placeholder location="classpath:webservices.properties"/>
+	<context:property-placeholder location="classpath:webservices.properties" />
 	<bean id="jaxb2Marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
 		<property name="contextPaths">
 			<list>
@@ -21,5 +21,17 @@
 		<property name="marshaller" ref="jaxb2Marshaller" />
 		<property name="unmarshaller" ref="jaxb2Marshaller" />
 		<property name="defaultUri" value="${person.webservice.url}" />
+		<property name="interceptors">
+			<list>
+				<ref bean="wss4jSecurityInterceptor" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="wss4jSecurityInterceptor" class="org.springframework.ws.soap.security.wss4j.Wss4jSecurityInterceptor">
+		<property name="securementActions" value="UsernameToken" />
+		<property name="securementUsername" value="mojo" />
+		<property name="securementPassword" value="mojopass" />
+		<property name="securementUsernameTokenElements" value="Nonce"/>
 	</bean>
 </beans>
