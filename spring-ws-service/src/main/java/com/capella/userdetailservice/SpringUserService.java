@@ -29,7 +29,7 @@ private static final Logger LOGGER = LoggerFactory
 	public UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException {
 		com.capella.entity.User findByUsername = userService.getUser(username);
-		LOGGER.info("findByUsername = " + findByUsername);
+		System.out.println("findByUsername = " + findByUsername);
 		if(findByUsername != null){
 			User user = new User(findByUsername.getUsername(), findByUsername.getPassword(), getAuthorities(1));
 			return user;

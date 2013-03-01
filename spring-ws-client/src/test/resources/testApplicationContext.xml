@@ -28,15 +28,9 @@
 			</list>
 		</property>
 	</bean>
-	
+	<!-- Username and password is set dynamically at SpringSecurityUsers class -->
 	<bean id="wss4jSecurityInterceptor" class="org.springframework.ws.soap.security.wss4j.Wss4jSecurityInterceptor">
 		<property name="securementActions" value="UsernameToken" />
-		<property name="securementUsername" value="admin" />
-		<property name="securementPassword" value="secret" />
 		<property name="securementUsernameTokenElements" value="Nonce"/>
 	</bean>
-	
-	<bean class="org.springframework.ws.soap.security.wss4j.callback.SpringDigestPasswordValidationCallbackHandler">
-        <property name="userDetailsService" ref="userDetailsService"/>
-    </bean>
 </beans>

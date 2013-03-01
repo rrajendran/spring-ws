@@ -8,7 +8,7 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
-import com.capella.exceptions.EmailValidationException;
+import com.capella.exceptions.SpringWsException;
 import com.spring_ws.person.schemas.ObjectFactory;
 import com.spring_ws.person.schemas.PersonRequest;
 import com.spring_ws.person.schemas.PersonResponse;
@@ -24,12 +24,14 @@ public class PersonEndpoint{
 	
 	/**
 	 * Gets person list.
-	 * @throws EmailValidationException 
+	 * @throws SpringWsException 
 	 */
 	@PayloadRoot(localPart="PersonRequest", namespace=NAMESPACE)
-	public @ResponsePayload PersonResponse getPersonRequest(@RequestPayload PersonRequest request, MessageContext messageContext) throws EmailValidationException {
+	public @ResponsePayload PersonResponse getPersonRequest(@RequestPayload PersonRequest request, MessageContext messageContext) {
 		PersonResponse createPersonResponse = new ObjectFactory().createPersonResponse();
-		createPersonResponse.setFullName(request.getFirstName() + " " + request.getLastName());
+		String name = request.getFirstName() + " " + request.getLastName();
+		LOGGER.info("name = " +name);
+		createPersonResponse.setFullName(name);
 		return createPersonResponse;
 	}
 }

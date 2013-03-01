@@ -8,6 +8,7 @@ Projects
 1. person-bindings - schema definition
 2. spring-ws-service - Webservice
 3. spring-ws-client - Test the webservice.
+4. spring-ws-users - Users details service.
 
 
 To Run

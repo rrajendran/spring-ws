@@ -10,8 +10,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.ws.client.core.WebServiceTemplate;
 
-import com.capella.entity.User;
-import com.capella.users.UserService;
 import com.spring_ws.person.schemas.ObjectFactory;
 import com.spring_ws.person.schemas.PersonRequest;
 import com.spring_ws.person.schemas.PersonResponse;
@@ -27,13 +25,12 @@ public class PersonServiceTest {
 	private WebServiceTemplate webServiceTemplate;
 	
 	@Autowired
-	private UserService userService;
+	private SpringSecurityUsers springSecurityUsers;
+	
 	@Before
 	public void setUp(){
-		User user = new User("mojo", "mojopass");
-		userService.save(user);
+         webServiceTemplate.setInterceptors(springSecurityUsers.getWss4jSecurityInterceptor(webServiceTemplate));
 	}
-	
 	@Test
 	public void testWebserviwebServiceTemplate(){
 		PersonRequest person = new ObjectFactory().createPersonRequest();

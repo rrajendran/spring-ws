@@ -26,4 +26,8 @@ public class UserService{
 		Query query = new Query(Criteria.where("username").is(username));
 		mongoOperations.remove(query, User.class);
 	}
+
+	public void drop() {
+		mongoOperations.getCollection("User").drop();
+	}
 }
