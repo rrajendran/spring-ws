@@ -84,6 +84,7 @@
 		<module>person-bindings</module>
 		<module>spring-ws-service</module>
 		<module>spring-ws-client</module>
+		<module>spring-ws-users</module>
 	</modules>
 	<properties>
 		<spring.ws.version>2.1.2.RELEASE</spring.ws.version>
