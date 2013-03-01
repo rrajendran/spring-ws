@@ -31,14 +31,18 @@ public class PersonServiceTest {
 	public void setUp(){
          webServiceTemplate.setInterceptors(springSecurityUsers.getWss4jSecurityInterceptor(webServiceTemplate));
 	}
+	
 	@Test
 	public void testWebserviwebServiceTemplate(){
+		PersonResponse personResponse = (PersonResponse) webServiceTemplate.marshalSendAndReceive(getPersonRequest());
+		Assert.assertEquals("testuser", personResponse.getUsername());
+		Assert.assertEquals("passwd", personResponse.getPassword());
+	}
+	
+	private PersonRequest getPersonRequest() {
 		PersonRequest person = new ObjectFactory().createPersonRequest();
-		person.setFirstName("Hello");
-		person.setLastName("World");
-		
-		PersonResponse personResponse = (PersonResponse) webServiceTemplate.marshalSendAndReceive(person);
-		Assert.assertEquals("Hello World", personResponse.getFullName());
+		person.setUsername("testuser");
+		return person;
 	}
 }
 

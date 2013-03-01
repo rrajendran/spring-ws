@@ -17,7 +17,7 @@ import com.capella.entity.User;
 public class UserServiceTest {
 	
 	private static final String PASSWD = "passwd";
-	private static final String USER_NAME = "ramesh";
+	private static final String USER_NAME = "testuser";
 	@Autowired
 	private UserService userService;
 	

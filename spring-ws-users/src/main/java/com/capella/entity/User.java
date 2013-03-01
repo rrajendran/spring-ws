@@ -2,17 +2,13 @@ package com.capella.entity;
 
 import java.math.BigInteger;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
 @Document
 public class User {
 
 	@Id
-	//@GeneratedValue(strategy = GenerationType.AUTO)
 	private BigInteger id;
 	private String username;
 	private String password;
