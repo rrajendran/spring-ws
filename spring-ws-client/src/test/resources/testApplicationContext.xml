@@ -35,4 +35,8 @@
 		<property name="securementPassword" value="secret" />
 		<property name="securementUsernameTokenElements" value="Nonce"/>
 	</bean>
+	
+	<bean class="org.springframework.ws.soap.security.wss4j.callback.SpringDigestPasswordValidationCallbackHandler">
+        <property name="userDetailsService" ref="userDetailsService"/>
+    </bean>
 </beans>
