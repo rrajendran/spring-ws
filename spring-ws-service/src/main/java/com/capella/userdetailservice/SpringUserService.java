@@ -1,9 +1,6 @@
 package com.capella.userdetailservice;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
+import com.capella.users.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +12,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.capella.users.UserService;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 
 @Service("springUserService")
 public class SpringUserService implements UserDetailsService {
@@ -23,12 +23,12 @@ public class SpringUserService implements UserDetailsService {
 private static final Logger LOGGER = LoggerFactory
 		.getLogger(SpringUserService.class);
 	@Autowired
-	private UserService userService;
+	private UserRepository userService;
 
 	@Override
 	public UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException {
-		com.capella.entity.User findByUsername = userService.getUser(username);
+		com.capella.users.model.User findByUsername = userService.findByUsername(username);
 		System.out.println("findByUsername = " + findByUsername);
 		if(findByUsername != null){
 			User user = new User(findByUsername.getUsername(), findByUsername.getPassword(), getAuthorities(1));

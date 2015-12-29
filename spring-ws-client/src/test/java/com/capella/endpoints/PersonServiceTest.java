@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ws.client.core.WebServiceTemplate;
 
 import com.spring_ws.person.schemas.ObjectFactory;
@@ -20,6 +21,7 @@ import com.spring_ws.person.schemas.PersonResponse;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"classpath:testApplicationContext.xml"})
+@Transactional
 public class PersonServiceTest {
 	@Autowired
 	private WebServiceTemplate webServiceTemplate;
@@ -35,13 +37,13 @@ public class PersonServiceTest {
 	@Test
 	public void testWebserviwebServiceTemplate(){
 		PersonResponse personResponse = (PersonResponse) webServiceTemplate.marshalSendAndReceive(getPersonRequest());
-		Assert.assertEquals("testuser", personResponse.getUsername());
-		Assert.assertEquals("passwd", personResponse.getPassword());
+		Assert.assertEquals("john", personResponse.getUsername());
+		Assert.assertEquals("pass", personResponse.getPassword());
 	}
 	
 	private PersonRequest getPersonRequest() {
 		PersonRequest person = new ObjectFactory().createPersonRequest();
-		person.setUsername("testuser");
+		person.setUsername("john");
 		return person;
 	}
 }

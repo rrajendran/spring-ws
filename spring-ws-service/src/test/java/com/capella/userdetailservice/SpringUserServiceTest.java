@@ -1,7 +1,7 @@
 package com.capella.userdetailservice;
 
-import static org.junit.Assert.*;
-
+import com.capella.users.model.User;
+import com.capella.users.repository.UserRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,23 +9,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.capella.entity.User;
-import com.capella.users.UserService;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations= {"classpath:/com/capella/spring/ws/service/applicationContext.xml"})
+@ContextConfiguration(locations= {"classpath:com/capella/spring/ws/service/applicationContext.xml"})
+@Transactional
 public class SpringUserServiceTest {
 	@Autowired
 	private SpringUserService springUserService;
 	
 	@Autowired
-	private UserService userService;
+	private UserRepository userRepository;
 	
 	@Before
 	public void setUp(){
 		User user = new User("test","test123");
-		userService.save(user);
+		userRepository.save(user);
 		
 	}
 	@Test

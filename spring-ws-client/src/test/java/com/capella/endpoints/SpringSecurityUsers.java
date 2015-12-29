@@ -1,5 +1,7 @@
 package com.capella.endpoints;
 
+import com.capella.users.model.User;
+import com.capella.users.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,21 +10,18 @@ import org.springframework.ws.client.core.WebServiceTemplate;
 import org.springframework.ws.client.support.interceptor.ClientInterceptor;
 import org.springframework.ws.soap.security.wss4j.Wss4jSecurityInterceptor;
 
-import com.capella.entity.User;
-import com.capella.users.UserService;
-
 @Service
 public class SpringSecurityUsers {
 
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(SpringSecurityUsers.class);
 	@Autowired
-	private UserService userService;
+	private UserRepository userService;
 	
 	private User user = null;
 
 	public User getUser(){
-		userService.drop();
+		userService.deleteAll();
 		user = new User("testuser", "passwd");
 		userService.save(user);
 		LOGGER.debug("Create users = " + user);
