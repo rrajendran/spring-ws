@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<tns:PersonRequest xmlns:tns="http://spring-ws.com/person/schemas" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://spring-ws.com/person/schemas ../../main/webapp/WEB-INF/person.xsd ">
-  <tns:firstName>tns:firstName</tns:firstName>
-  <tns:lastName>tns:lastName</tns:lastName>
-</tns:PersonRequest>	

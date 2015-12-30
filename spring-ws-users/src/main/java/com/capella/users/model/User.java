@@ -1,17 +1,24 @@
 package com.capella.users.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "user",schema = "public")
+@Table(name = "user",schema = "users")
 @NamedQuery(
         name="find.by.username",
-        query="SELECT OBJECT(u) from User u where u.username=:username"
+        query="FROM User u where u.username=:username"
 )
 public class User {
-
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="keyword_seq")
+    @SequenceGenerator(name="keyword_seq",sequenceName="KEYWORD_ID_SEQ", allocationSize=1)
     private Long id;
 
     @Column

@@ -3,6 +3,7 @@ package com.capella.users.repository;
 import com.capella.users.model.User;
 import com.capella.users.model.UserBuilder;
 import org.junit.After;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import static org.hamcrest.Matchers.notNullValue;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:applicationContext.xml")
 @Transactional
+@Ignore
 public class UserRepositoryIntegrationTest {
 
     @Autowired
