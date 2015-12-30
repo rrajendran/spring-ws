@@ -1,3 +1,6 @@
+### Status
+[![Build Status](https://travis-ci.org/rrajendran/spring-ws.svg)](https://travis-ci.org/rrajendran/spring-ws)
+
 spring-ws
 =================
 
