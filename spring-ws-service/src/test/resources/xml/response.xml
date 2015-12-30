@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<PersonResponse xmlns="http://spring-ws.com/person/schemas">
-    <username>name</username>
-    <password>password</password>
-</PersonResponse>
