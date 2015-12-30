@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>TRACE %d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>/opt/tomcat/logs/spring-ws-example/spring-ws-example.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>TRACE %-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="DATA_LOGGER" class="ch.qos.logback.core.FileAppender">
+        <file>/opt/tomcat/logs/spring-ws-example/data.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>TRACE %-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.springframework.ws.soap.server.endpoint.interceptor" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+     <root level="INFO">
+        <appender-ref ref="FILE" />
+        <appender-ref ref="STDOUT" />
+    </root>
+
+</configuration>

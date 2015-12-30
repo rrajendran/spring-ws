@@ -2,48 +2,41 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <parent>
-        <groupId>com.capella</groupId>
-        <artifactId>spring-ws</artifactId>
-        <version>1.0</version>
-    </parent>
-    <artifactId>spring-ws-service</artifactId>
+    <groupId>com.marbink.spring.hr</groupId>
+    <artifactId>spring-ws-example</artifactId>
     <packaging>war</packaging>
-    <name>Spring WS Example</name>
+    <version>1.0-SNAPSHOT</version>
+    <name>Spring-WS Application - example</name>
 
     <properties>
         <slf4j.version>1.6.4</slf4j.version>
         <logback.version>1.0.1</logback.version>
+        <springframework.ws.version>2.1.4.RELEASE</springframework.ws.version>
         <jdom2.version>2.0.4</jdom2.version>
         <jaxen.version>1.1</jaxen.version>
         <hibernate.version>5.0.2.Final</hibernate.version>
+        <spring.version>4.1.6.RELEASE</spring.version>
         <postgresql.version>9.4-1204-jdbc42</postgresql.version>
         <spring-orm.version>4.0.9.RELEASE</spring-orm.version>
+        <spring-ws.version>2.2.4.RELEASE</spring-ws.version>
         <xws-security.version>3.0</xws-security.version>
-        <wsdl4j.version>1.6.3</wsdl4j.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.capella</groupId>
             <artifactId>spring-ws-users</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>wsdl4j</groupId>
-            <artifactId>wsdl4j</artifactId>
-            <version>${wsdl4j.version}</version>
+            <version>1.0</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.ws</groupId>
             <artifactId>spring-ws-core</artifactId>
-            <version>${spring.ws.version}</version>
+            <version>${spring-ws.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.ws</groupId>
             <artifactId>spring-ws-security</artifactId>
-            <version>${spring.ws.version}</version>
+            <version>${spring-ws.version}</version>
         </dependency>
         <dependency>
             <groupId>com.sun.xml.wss</groupId>
@@ -56,8 +49,13 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
+ 
         <!-- Spring WS -->
+        <dependency>
+            <groupId>org.springframework.ws</groupId>
+            <artifactId>spring-ws-core</artifactId>
+            <version>${springframework.ws.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.jdom</groupId>
             <artifactId>jdom2</artifactId>
@@ -89,13 +87,13 @@
     </dependencies>
 
     <build>
-        <finalName>${project.artifactId}</finalName>
+        <finalName>spring-ws-example</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                 </configuration>
             </plugin>
             <plugin>
