@@ -5,18 +5,14 @@ Getting started with spring webservice
 
 Projects
 ==================
-1. person-bindings - schema definition
+1. spring-ws-users - Users details service.
 2. spring-ws-service - Webservice
-3. spring-ws-client - Test the webservice.
-4. spring-ws-users - Users details service.
 
 
 To Run
 =================
 1. Go spring-ws folder
-2. Execute mvn clean install. [spring-ws-client project will fail. So ignore it.]
+2. Execute mvn clean install.
 3. Go to spring-ws-service
-4. Execute mvn clean jetty:run-war
-5. Wsdl is exposed at url <a href="http://localhost:8080/spring-ws-service/personService/person.wsdl">Access wsdl here</a>
-6. Go to spring-ws-client
-7. Execute mvn test.
+4. Execute mvn clean tomcat:run
+5. Wsdl is exposed at url <a href="http://localhost:8080/spring-ws-service/personService/PersonResource/person.wsdl">Access wsdl here</a>
