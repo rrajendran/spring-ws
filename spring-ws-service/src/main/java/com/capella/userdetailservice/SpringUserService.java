@@ -28,11 +28,10 @@ private static final Logger LOGGER = LoggerFactory
 	@Override
 	public UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException {
-		com.capella.users.model.User findByUsername = userService.findByUsername(username);
-		System.out.println("findByUsername = " + findByUsername);
-		if(findByUsername != null){
-			User user = new User(findByUsername.getUsername(), findByUsername.getPassword(), getAuthorities(1));
-			return user;
+		com.capella.users.model.User user = userService.findByUsername(username);
+		System.out.println("user = " + user);
+		if(user != null){
+			return new User(user.getUsername(), user.getPassword(), getAuthorities(1));
 		}
 		return null;
 	}

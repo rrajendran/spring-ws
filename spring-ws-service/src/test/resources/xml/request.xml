@@ -1,0 +1,3 @@
+<ns2:PersonRequest xmlns:ns2="http://spring-ws.com/person/schemas">
+    <ns2:username>john</ns2:username>
+</ns2:PersonRequest>

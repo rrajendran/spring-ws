@@ -1,5 +1,5 @@
 <xwss:SecurityConfiguration xmlns:xwss="http://java.sun.com/xml/ns/xwss/config">
     <xwss:RequireUsernameToken passwordDigestRequired="true" nonceRequired="true"/>
     <!-- Security password will be encrypted in the response for this user. -->
-    <xwss:UsernameToken name="testuser" password="passwd" digestPassword="true" useNonce="true"/>
+   <!-- <xwss:UsernameToken name="testuser" password="passwd" digestPassword="true" useNonce="true"/>-->
 </xwss:SecurityConfiguration>

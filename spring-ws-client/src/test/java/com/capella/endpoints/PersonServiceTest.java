@@ -1,7 +1,9 @@
 package com.capella.endpoints;
 
+import com.spring_ws.person.schemas.ObjectFactory;
+import com.spring_ws.person.schemas.PersonRequest;
+import com.spring_ws.person.schemas.PersonResponse;
 import junit.framework.Assert;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,10 +12,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ws.client.core.WebServiceTemplate;
-
-import com.spring_ws.person.schemas.ObjectFactory;
-import com.spring_ws.person.schemas.PersonRequest;
-import com.spring_ws.person.schemas.PersonResponse;
 /**
  * 
  * @author rrajendran
@@ -37,8 +35,8 @@ public class PersonServiceTest {
 	@Test
 	public void testWebserviwebServiceTemplate(){
 		PersonResponse personResponse = (PersonResponse) webServiceTemplate.marshalSendAndReceive(getPersonRequest());
-		Assert.assertEquals("john", personResponse.getUsername());
-		Assert.assertEquals("pass", personResponse.getPassword());
+		Assert.assertEquals("testuser", personResponse.getUsername());
+		Assert.assertEquals("passwd", personResponse.getPassword());
 	}
 	
 	private PersonRequest getPersonRequest() {
